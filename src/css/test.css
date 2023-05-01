@@ -1,0 +1,36 @@
+form {
+  background-color: purple;
+  color: white;
+  width: 500px;
+  margin: auto;
+  padding: 20px;
+}
+form label {
+  display: block;
+  width: 100%;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+form input {
+  display: block;
+  width: 97%;
+  padding: 5px;
+  font-size: 18px;
+  outline: none;
+  margin-bottom: 10px;
+}
+form button {
+  padding: 10px;
+  font-size: 18px;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.message {
+  padding: 10px;
+  margin-bottom: 10px;
+}
