@@ -75,3 +75,25 @@ footer {
   padding: 10px;
   margin-bottom: 10px;
 }
+
+.post p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.post .action {
+  display: flex;
+  align-items: center;
+}
+.post .btn {
+  padding: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  width: 100px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}

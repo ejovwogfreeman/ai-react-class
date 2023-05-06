@@ -1,25 +1,35 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
-const PostDetail = ({ posts }) => {
+const PostDetail = ({ post, deletePost }) => {
   const params = useParams();
+  const navigate = useNavigate();
+
+  const handleDelete = () => {
+    deletePost(post.id);
+    navigate("/");
+  };
+
   return (
     <div className="posts">
-      <h1 style={{ marginBottom: "10px" }}>Post Detail</h1>
-      {posts.map((post) => {
-        return (
-          <div key={post.id}>
-            {post.id === Number(params.id) ? (
-              <div className="post">
-                <h2>{post.title}</h2>
-                <p>{post.body}</p>
-              </div>
-            ) : (
-              ""
-            )}
+      {post.id === Number(params.id) ? (
+        <>
+          <h1 style={{ marginBottom: "10px" }}>Post Detail</h1>
+
+          <div className="post">
+            <h2>{post.title}</h2>
+            <p>{post.body}</p>
+            <div className="action">
+              <button className="btn" onClick={handleDelete}>
+                Delete Post
+              </button>
+              <Link to={`/edit/${post.id}`} className="btn">
+                Edit Post
+              </Link>
+            </div>
           </div>
-        );
-      })}
+        </>
+      ) : null}
     </div>
   );
 };
