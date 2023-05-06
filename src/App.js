@@ -40,9 +40,7 @@ function App() {
   }, [posts]);
 
   const addPost = (post) => {
-    const id = Math.random();
-    const singlePost = { ...post, id };
-    const newPosts = [singlePost, ...posts];
+    const newPosts = [post, ...posts];
     setPosts(newPosts);
   };
 

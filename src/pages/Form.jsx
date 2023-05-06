@@ -10,7 +10,7 @@ const Form = ({ addPost }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addPost({ title, body });
+    addPost({ title, body, id: Math.random() });
     navigate("/");
   };
   return (
