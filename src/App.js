@@ -9,28 +9,35 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import PostDetail from "./pages/PostDetail";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
-  const data = [
-    {
-      id: 1,
-      title: "Post 1",
-      body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores repellat recusandae explicabo ipsa voluptas aperiam in amet nam, tenetur natus! Aliquam sequi possimus enim, libero numquam esse dignissimos dolore minus?",
-    },
-    {
-      id: 2,
-      title: "Post 2",
-      body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores repellat recusandae explicabo ipsa voluptas aperiam in amet nam, tenetur natus! Aliquam sequi possimus enim, libero numquam esse dignissimos dolore minus?",
-    },
-    {
-      id: 3,
-      title: "Post 3",
-      body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores repellat recusandae explicabo ipsa voluptas aperiam in amet nam, tenetur natus! Aliquam sequi possimus enim, libero numquam esse dignissimos dolore minus?",
-    },
-  ];
+  // const data = [
+  //   {
+  //     id: 1,
+  //     title: "Post 1",
+  //     body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores repellat recusandae explicabo ipsa voluptas aperiam in amet nam, tenetur natus! Aliquam sequi possimus enim, libero numquam esse dignissimos dolore minus?",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Post 2",
+  //     body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores repellat recusandae explicabo ipsa voluptas aperiam in amet nam, tenetur natus! Aliquam sequi possimus enim, libero numquam esse dignissimos dolore minus?",
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Post 3",
+  //     body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores repellat recusandae explicabo ipsa voluptas aperiam in amet nam, tenetur natus! Aliquam sequi possimus enim, libero numquam esse dignissimos dolore minus?",
+  //   },
+  // ];
 
-  const [posts, setPosts] = useState(data);
+  const [posts, setPosts] = useState(() => {
+    const localData = localStorage.getItem("posts");
+    return localData ? JSON.parse(localData) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("posts", JSON.stringify(posts));
+  }, [posts]);
 
   const addPost = (post) => {
     const id = Math.random();
