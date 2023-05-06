@@ -11,7 +11,6 @@ const EditPost = ({ post, editPost }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(title);
     editPost({ title, body, id: post.id });
     navigate("/");
   };

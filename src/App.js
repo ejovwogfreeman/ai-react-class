@@ -48,8 +48,6 @@ function App() {
 
   const deletePost = (id) => {
     const newPosts = posts.filter((post) => post.id !== id);
-    console.log(id);
-    console.log(newPosts);
     setPosts(newPosts);
   };
 
